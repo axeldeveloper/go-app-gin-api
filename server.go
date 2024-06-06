@@ -36,8 +36,9 @@ func main() {
 		}
 
 		c.JSON(http.StatusOK, gin.H{
-			"message": "pong",
-			"DB_HOST": os.Getenv("DB_HOST"),
+			"message":     "pong",
+			"DB_HOST":     os.Getenv("DB_HOST"),
+			"ENV_STATION": os.Getenv("ENV_STATION"),
 		})
 
 	})
