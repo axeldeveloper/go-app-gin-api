@@ -2,31 +2,22 @@
   - go 
   - gin
 
-[![example-go-gin](https://github.com/koyeb/example-go-gin/actions/workflows/deploy.yaml/badge.svg)](https://github.com/koyeb/example-go-gin/actions)
-
-<div align="center">
-  <a href="https://koyeb.com">
-    <img src="https://www.koyeb.com/static/images/icons/koyeb.svg" alt="Logo" width="80" height="80">
-  </a>
-  <h3 align="center">Koyeb Serverless Platform</h3>
-  <p align="center">
-    Deploy a Go Gin application on Koyeb
-    <br />
-    <a href="https://koyeb.com">Learn more about Koyeb</a>
-    ·
-    <a href="https://koyeb.com/docs">Explore the documentation</a>
-    ·
-    <a href="https://koyeb.com/tutorials">Discover our tutorials</a>
-  </p>
-</div>
 
 
-## About Koyeb and the Go Gin example application
+# Run
+To run the project, you need to have Go installed. Then, you can run the following command:
 
-Koyeb is a developer-friendly serverless platform to deploy apps globally. No-ops, servers, or infrastructure management.
-This repository contains a Go Gin application you can deploy on the Koyeb serverless platform for testing.
+```sh
 
-This example application is designed to show how a Go Gin application can be deployed on Koyeb.
+make run 
+
+```
+
+
+make run 
+// or Docker
+
+
 
 ## Getting Started
 

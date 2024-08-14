@@ -1,5 +1,6 @@
 package domain
 
+// todo represents data about a task in the Company list
 type Company struct {
 	ID                      string `json:"id"`
 	CNPJBasico              string `json:"cnpj_basico"`

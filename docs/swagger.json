@@ -1,0 +1,134 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {
+            "name": "API Support",
+            "url": "http://www.swagger.io/support",
+            "email": "support@swagger.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "basePath": "/api/v1",
+    "paths": {
+        "/companies": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "get all items in the Company list",
+                "operationId": "get-all-companies",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/domain.Company"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/domain.Message"
+                        }
+                    }
+                }
+            }
+        },
+        "/companies/{id}": {
+            "delete": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "delete a company item by ID",
+                "operationId": "delete-company-by-id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "company ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/domain.Company"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/domain.Message"
+                        }
+                    }
+                }
+            }
+        },
+        "/example/helloworld": {
+            "get": {
+                "description": "do ping",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "example"
+                ],
+                "summary": "ping example",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "domain.Company": {
+            "type": "object",
+            "properties": {
+                "capital": {
+                    "type": "string"
+                },
+                "cnpj_basico": {
+                    "type": "string"
+                },
+                "ente_federativo": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "natureza_juridica": {
+                    "type": "string"
+                },
+                "porte": {
+                    "type": "string"
+                },
+                "qualificacao_responsavel": {
+                    "type": "string"
+                },
+                "razao_social": {
+                    "type": "string"
+                }
+            }
+        },
+        "domain.Message": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
