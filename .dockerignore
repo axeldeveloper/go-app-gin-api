@@ -10,3 +10,6 @@ arm/
 powerpc/
 mips/
 /bin
+node_modules
+*.log
+*.md

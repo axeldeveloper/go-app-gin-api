@@ -69,7 +69,6 @@ func main() {
 	docs.SwaggerInfo.Description = "This is a sample server Petstore server."
 	docs.SwaggerInfo.Version = "1.0"
 	docs.SwaggerInfo.Host = "localhost:8001"
-	//docs.SwaggerInfo.BasePath = "/v2"
 	docs.SwaggerInfo.BasePath = "/api/v1"
 	docs.SwaggerInfo.Schemes = []string{"http", "https"}
 
@@ -98,7 +97,8 @@ func main() {
 		err := godotenv.Load() //by default, it is .env so we don't have to write
 		if err != nil {
 			c.JSON(404, gin.H{
-				"Error": "Error is occurred  on .env file please check",
+				//"Error": "Error is occurred  on .env file please check",
+				"Error": err,
 			})
 		}
 
