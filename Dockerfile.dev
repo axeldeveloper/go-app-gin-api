@@ -1,15 +1,19 @@
-# Build stage
-# Build stage
 FROM golang:1.21.0-alpine3.17 AS build
 WORKDIR /app
+COPY go.mod go.sum ./
+RUN go mod download
 COPY . .
+# COPY . .
 RUN go build -o main .
-# Ensure the binary has execute permissions
 RUN chmod +x main
 
 # Run stage with Alpine for debugging
 FROM alpine:3.17
 WORKDIR /app
 COPY --from=build /app/main .
+
+# Copiar o arquivo .env para dentro do container, se necessário
+COPY --from=build /app/.env .
+
 EXPOSE 8001
 CMD ["/app/main"]

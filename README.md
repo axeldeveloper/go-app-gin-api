@@ -3,25 +3,34 @@
   - gin
 
 
+## Getting Started
 
-# Run
+Follow the steps below to deploy and run the Go Gin application on your Koyeb account.
+
+
+# Docker Run
+
+```sh
+# build imagens
+$ docker build -f Dockerfile.dev -t app-gin .
+
+# run container
+$ docker run -d -p 8001:8001 --name api-gin app-gin
+
+```
+# Run 
 To run the project, you need to have Go installed. Then, you can run the following command:
 
 ```sh
 
+## make help 
+## demostrate cmd
+
 make run 
+# ->  equals  go run ./server.go
 
 ```
 
-
-make run 
-// or Docker
-
-
-
-## Getting Started
-
-Follow the steps below to deploy and run the Go Gin application on your Koyeb account.
 
 # Using 
 
