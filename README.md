@@ -1,6 +1,7 @@
 # Project
   - go 
   - gin
+  - postgreSQL
 
 
 ## Getting Started
@@ -31,6 +32,24 @@ make run
 
 ```
 
+# SWAGGER
+```sh
+
+go install github.com/swaggo/swag/cmd/swag@latest
+
+echo 'export PATH=$PATH:$HOME/go/bin' >> ~/.zshrc
+source ~/.zshrc
+
+
+
+   // @Summary      Descrição breve
+   // @Description  Descrição detalhada
+   // @Tags         exemplo
+   // @Accept       json
+   // @Produce      json
+   // @Success      200  {object}  domain.Exemplo
+   // @Router       /exemplo [get]
+```
 
 # Using 
 

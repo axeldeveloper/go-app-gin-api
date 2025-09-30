@@ -12,7 +12,6 @@ run:
 cl:
 	@echo "Limpar o terminal..."
 	clear
-
 rund: build
 	@echo "Executando o binário..."
 	@./bin/api

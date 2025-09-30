@@ -25,8 +25,15 @@ const docTemplate = `{
     "paths": {
         "/companies": {
             "get": {
+                "description": "Return all Companies",
+                "consumes": [
+                    "application/json"
+                ],
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "Company"
                 ],
                 "summary": "get all items in the Company list",
                 "operationId": "get-all-companies",
@@ -44,12 +51,86 @@ const docTemplate = `{
                         }
                     }
                 }
+            },
+            "post": {
+                "description": "Create a Company",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Company"
+                ],
+                "summary": "create a company item",
+                "operationId": "create-company",
+                "parameters": [
+                    {
+                        "description": "Company item",
+                        "name": "company",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/domain.Company"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/domain.Company"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/domain.Message"
+                        }
+                    }
+                }
             }
         },
         "/companies/{id}": {
-            "delete": {
+            "get": {
+                "description": "Return Company by Id",
+                "consumes": [
+                    "application/json"
+                ],
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "Company"
+                ],
+                "summary": "get item by id in the Company list",
+                "operationId": "get-company-by-id",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/domain.Company"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/domain.Message"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete a Company",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Company"
                 ],
                 "summary": "delete a company item by ID",
                 "operationId": "delete-company-by-id",

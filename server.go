@@ -5,6 +5,7 @@ import (
 	"example-go-gin/handlers"
 	"example-go-gin/repository"
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 
@@ -89,18 +90,23 @@ func main() {
 	database := db.Connection()
 	// Handlers
 	companyRepository := repository.NewUserRepository(database)
-	companyHandler := handlers.NewUserHandler(companyRepository)
+	companyHandler := handlers.NewCompanyHandler(companyRepository)
 
 	r.GET("/", Helloworld)
 
 	r.GET("/ping", func(c *gin.Context) {
 		err := godotenv.Load() //by default, it is .env so we don't have to write
 		if err != nil {
+
+			log.Fatal("Error loading .env file")
+
 			c.JSON(404, gin.H{
-				//"Error": "Error is occurred  on .env file please check",
-				"Error": err,
+				"Message": "Error is occurred  on .env file please check",
+				"Error":   err,
 			})
 		}
+
+		fmt.Sprintf(":%s", "App running on port: ")
 
 		c.JSON(http.StatusOK, gin.H{
 			"message":     "pong",
