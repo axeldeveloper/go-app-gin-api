@@ -5,13 +5,11 @@ import (
 	"example-go-gin/handlers"
 	"example-go-gin/repository"
 	"fmt"
-	"log"
 	"net/http"
 	"os"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-	"github.com/joho/godotenv"
 
 	// "github.com/swaggo/files"
 	// "github.com/swaggo/gin-swagger"
@@ -95,19 +93,6 @@ func main() {
 	r.GET("/", Helloworld)
 
 	r.GET("/ping", func(c *gin.Context) {
-		err := godotenv.Load() //by default, it is .env so we don't have to write
-		if err != nil {
-
-			log.Fatal("Error loading .env file")
-
-			c.JSON(404, gin.H{
-				"Message": "Error is occurred  on .env file please check",
-				"Error":   err,
-			})
-		}
-
-		fmt.Sprintf(":%s", "App running on port: ")
-
 		c.JSON(http.StatusOK, gin.H{
 			"message":     "pong",
 			"DB_HOST":     os.Getenv("DB_HOST"),
