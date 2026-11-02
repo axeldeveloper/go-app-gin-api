@@ -5,7 +5,7 @@ on:
     - cron: '40 7 * * *'
   push:
     branches:
-      - '*'
+      - main
 
 jobs:
   deploy:
@@ -22,7 +22,8 @@ jobs:
       - name: Build and deploy the application
         uses: koyeb/action-git-deploy@v1
         with:
-          app-name: go-gin-${{ github.ref_name }}
+          app-name: go-gin-mss
+          service-name: go-gin-mss
           service-instance-type: free
           service-regions: was
           service-ports: "8000:http"
